@@ -1,4 +1,4 @@
-import { Student } from './../../models/user';
+import { Student } from '../../models/student';
 import { UserService } from './../../apis/students.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';

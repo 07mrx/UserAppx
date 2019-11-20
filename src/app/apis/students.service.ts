@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Student } from '../models/user';
+import { Student } from '../models/student';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -56,7 +56,7 @@ export class UserService {
     )
   }
 
-  // Error handling 
+  // Error handling
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
