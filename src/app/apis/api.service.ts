@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
   providedIn: 'root'
 })
 
-export class UserService {
+export class ApiService {
 
   endpoint: string = 'http://localhost:4000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -42,7 +42,7 @@ export class UserService {
 
   // Update student
   UpdateStudent(id, data: Student): Observable<any> {
-    let API_URL = `${this.endpoint}/update/${id}`;
+    let API_URL = `${this.endpoint}/update-student/${id}`;
     return this.http.put(API_URL, data, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     )

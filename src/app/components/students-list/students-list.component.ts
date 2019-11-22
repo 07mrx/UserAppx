@@ -1,5 +1,5 @@
 import { Student } from '../../models/student';
-import { UserService } from './../../apis/students.service';
+import { ApiService } from '../../apis/api.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
@@ -15,7 +15,7 @@ export class StudentsListComponent implements OnInit {
   @ViewChild(MatPaginator, null) paginator: MatPaginator;
   displayedColumns: string[] = ['_id', 'student_name', 'student_email', 'section', 'action'];
 
-  constructor(private studentApi: UserService) {
+  constructor(private studentApi: ApiService) {
     this.studentApi.GetStudents().subscribe(data => {
       this.StudentData = data;
       this.dataSource = new MatTableDataSource<Student>(this.StudentData);

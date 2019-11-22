@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';
-import { UserService } from './../../apis/students.service';
+import { ApiService } from '../../apis/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 export interface Subject {
@@ -35,7 +35,7 @@ export class AddStudentComponent implements OnInit {
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private studentApi: UserService
+    private studentApi: ApiService
   ) { }
 
   /* Reactive book form */

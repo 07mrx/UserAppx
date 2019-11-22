@@ -2,7 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';
-import { UserService } from './../../apis/students.service';
+import { ApiService } from '../../apis/api.service';
 
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
@@ -37,7 +37,7 @@ export class EditStudentComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private actRoute: ActivatedRoute,
-    private studentApi: UserService
+    private studentApi: ApiService
   ) {
     var id = this.actRoute.snapshot.paramMap.get('id');
     this.studentApi.GetStudent(id).subscribe(data => {
