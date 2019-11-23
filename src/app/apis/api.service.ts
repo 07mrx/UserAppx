@@ -21,7 +21,7 @@ export class ApiService {
     return this.http.post(API_URL, data)
       .pipe(
         catchError(this.errorMgmt)
-      )
+      );
   }
 
   // Get all students
@@ -37,7 +37,7 @@ export class ApiService {
         return res || {}
       }),
       catchError(this.errorMgmt)
-    )
+    );
   }
 
   // Update student

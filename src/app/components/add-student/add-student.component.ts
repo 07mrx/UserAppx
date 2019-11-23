@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';
 import { ApiService } from '../../apis/api.service';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export interface Subject {
   name: string;
@@ -47,7 +47,7 @@ export class AddStudentComponent implements OnInit {
       subjects: [this.subjectArray],
       dob: ['', [Validators.required]],
       gender: ['Male']
-    })
+    });
   }
 
   /* Add dynamic languages */
@@ -77,7 +77,7 @@ export class AddStudentComponent implements OnInit {
     var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
     this.studentForm.get('dob').setValue(convertDate, {
       onlyself: true
-    })
+    });
   }
 
   /* Get errors */
@@ -89,7 +89,7 @@ export class AddStudentComponent implements OnInit {
   submitStudentForm() {
     if (this.studentForm.valid) {
       this.studentApi.AddStudent(this.studentForm.value).subscribe(res => {
-        this.ngZone.run(() => this.router.navigateByUrl('/students-list'))
+        this.ngZone.run(() => this.router.navigateByUrl('/students-list'));
       });
     }
   }
